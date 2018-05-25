@@ -1,13 +1,14 @@
 import React from 'react'
+import GlobalNav from './GlobalNav';
 
 //stateless component
 const About = (props) => {
   return(
-    <div>
+		<div>
+			<GlobalNav />
       <h1 className="text-center page-title">About</h1>
-      <p>
-        This is a weather application build on React.
-        Here are some of the tools I used:
+			<p>
+			About Taco Star
       </p>
     </div>
   )

@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import Main from './components/Main';
 import $ from 'jquery';
 import About from './components/About';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {Switch, BrowserRouter, Route} from 'react-router-dom';
 import 'normalize.css/normalize.css';
-import './styles/styles.scss';
 import Bootstrap from 'bootstrap/scss/bootstrap.scss'
+import './styles/styles.scss';
+
 
 window.jQuery = $;
 window.$ = $;
@@ -24,8 +25,8 @@ window.$ = $;
 const routes = (
 	<BrowserRouter>
 	<div>
-		<Route path="/" component={Main} exact={true} />
-		<Route path="/About" component={About} exact={true} />
+			<Route exact path="/" component={Main} />
+			<Route exact path="/About" component={About} />
 	</div>
 	</BrowserRouter>
 )
