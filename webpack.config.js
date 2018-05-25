@@ -1,7 +1,21 @@
 const path = require('path');
+const webpack = require('webpack');
+
 
 module.exports = {
-	entry: './src/app.js',
+	entry: [
+    './src/app.js'
+  ],
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+			jQuery: 'jquery',
+			'window.jQuery': 'jquery',
+    })
+	],
+	externals: {
+    'jQuery': 'jQuery'
+  },
 	output: {
 		path: path.join(__dirname,'public'),
 		filename: 'bundle.js'
@@ -23,6 +37,7 @@ module.exports = {
 	]},
 	devtool: 'cheap-eval-eval-source-map',
 	devServer: {
-		contentBase: path.join(__dirname,'public')
+		contentBase: path.join(__dirname,'public'),
+		historyApiFallback: true
 	}
 }
