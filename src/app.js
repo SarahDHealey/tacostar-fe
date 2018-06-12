@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import Main from './components/Main';
 import $ from 'jquery';
 import About from './components/About';
-import {Switch, BrowserRouter, Route} from 'react-router-dom';
+import NotFound from './components/NotFound';
+import GlobalNav from './components/GlobalNav';
+import {Link, Switch, BrowserRouter, Route} from 'react-router-dom';
 import 'normalize.css/normalize.css';
 import Bootstrap from 'bootstrap/scss/bootstrap.scss'
 import './styles/styles.scss';
@@ -24,10 +26,14 @@ window.$ = $;
 
 const routes = (
 	<BrowserRouter>
-	<div>
-			<Route exact path="/" component={Main} />
-			<Route exact path="/about" component={About} />
-	</div>
+		<div>
+			<GlobalNav />
+			<Switch>
+					<Route exact path="/" component={Main} />
+					<Route exact path="/about" component={About} />
+					<Route component={NotFound} />
+			</Switch>
+		</div>
 	</BrowserRouter>
 )
 

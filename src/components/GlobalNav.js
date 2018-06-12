@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Nav } from "react-bootstrap"
 import { Navbar } from "react-bootstrap"
 import { NavbarHeader } from "react-bootstrap"
@@ -18,33 +18,33 @@ const GlobalNav = () => (
       <ul>
         <li><img src="images/logo3-transparency.png" className="x-small" alt="Responsive image"/>
         </li>
-        <li className="current"><a href="/">Home</a></li>
+        <li><NavLink to="/" activeClassName="current" exact={true}>Home</NavLink></li>
         <li>
-          <a href="/food">Food</a>
+          <NavLink to="/food" activeClassName="current" exact={true}>Food</NavLink>
           <ul>
-            <li><a href="#">Lorem ipsum dolor</a></li>
-            <li><a href="#">Magna phasellus</a></li>
-            <li><a href="#">Etiam dolore nisl</a></li>
+            <li><Link to="#">Lorem ipsum dolor</Link></li>
+            <li><Link to="#">Magna phasellus</Link></li>
+            <li><Link to="#">EtiLinkm dolore nisl</Link></li>
             <li>
-              <a href="#">Phasellus consequat</a>
+              <Link to="#">Phasellus consequat</Link>
               <ul>
-                <li><a href="#">Magna phasellus</a></li>
-                <li><a href="#">Etiam dolore nisl</a></li>
-                <li><a href="#">Veroeros feugiat</a></li>
-                <li><a href="#">Nisl sed aliquam</a></li>
-                <li><a href="#">Dolore adipiscing</a></li>
+                <li><Link to="#">Magna phasellus</Link></li>
+                <li><Link to="#">Etiam dolore nisl</Link></li>
+                <li><Link to="#">Veroeros feugiat</Link></li>
+                <li><Link to="#">Nisl sed aliquam</Link></li>
+                <li><Link to="#">Dolore adipiscing</Link></li>
               </ul>
             </li>
-            <li><a href="#">Veroeros feugiat</a></li>
+            <li><Link to="#">Veroeros feugiat</Link></li>
           </ul>
         </li>
-        <li><a href="left-sidebar.html">Locations</a></li>
-        <li><a href="right-sidebar.html">Specials</a></li>
-        <li><a href="/about">About</a></li>
+        <li><NavLink to="left-sidebar.html" activeClassName="current" exact={true}>Locations</NavLink></li>
+        <li><NavLink to="right-sidebar.html" activeClassName="current" exact={true}>Specials</NavLink></li>
+        <li><NavLink to="/about" activeClassName="current" exact={true}>About</NavLink></li>
       </ul>
       <form className="form-inline">
         <input className="form-control mr-sm-2" type="search" placeholder="Search by Zipcode"/>
-        <button className="btn btn-success my-2 my-sm-0" type="submit">Search Locations<i class="fas fa-search"></i></button>
+        <button className="btn btn-success my-2 my-sm-0" type="submit">Search Locations</button>
       </form>
     </nav>
   </div>
