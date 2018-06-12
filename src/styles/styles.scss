@@ -1,54 +1,11 @@
 @import './base/settings';
 @import './base/base';
-@import './components/Nav';
+@import './components/nav';
+@import './components/about';
+@import './components/main';
+@import './components/banner-image';
+@import './components/banner-text';
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-$bgDefault   : #e74c3c !important;
-$bgHighlight : #c0392b !important;
-$colDefault  : #c0392b !important;
-$colHighlight: #c0392b !important;
 
-.navbar-default {
-  background-color: $bgDefault;
-  border-color: $bgHighlight;
-  .navbar-brand {
-    color: $colDefault;
-    &:hover, &:focus {
-      color: $colHighlight; }}
-  .navbar-text {
-		color: $colDefault; 
-		font-size: 2rem; }
-  .navbar-nav {
-    > li {
-      > a {
-        color: $colDefault;
-        &:hover,  &:focus {
-          color: $colHighlight; }}}
-    > .open {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight; }}}
-  .navbar-toggle {
-    border-color: $bgHighlight;
-    &:hover, &:focus {
-      background-color: $bgHighlight; }
-    .icon-bar {
-      background-color: $colDefault; }}
-  .navbar-collapse,
-  .navbar-form {
-    border-color: $colDefault; }
-  .navbar-link {
-    color: $colDefault;
-    &:hover {
-      color: $colHighlight; }}}
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu {
-		> li > a {
-      color: $colDefault;
-      &:hover, &:focus {
-        color: $colHighlight; }}
-    > .active {
-      > a:focus, {
-        color: $colHighlight;
-        background-color: $bgHighlight; }}}
-}

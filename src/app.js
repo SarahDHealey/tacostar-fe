@@ -26,7 +26,7 @@ const routes = (
 	<BrowserRouter>
 	<div>
 			<Route exact path="/" component={Main} />
-			<Route exact path="/About" component={About} />
+			<Route exact path="/about" component={About} />
 	</div>
 	</BrowserRouter>
 )

@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
+
 const port = process.env.PORT || 3000;
 
 
@@ -19,8 +20,9 @@ module.exports = {
     'jQuery': 'jQuery'
   },
 	output: {
-		path: path.join(__dirname,'public'),
-		filename: 'bundle.js'
+		path: path.join(__dirname,'public/build'),
+		filename: 'bundle.js',
+		sourceMapFilename: 'bundle.map'	
 	},
 	module: {
 		rules: [{
