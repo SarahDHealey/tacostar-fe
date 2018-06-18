@@ -10,8 +10,6 @@ export default class Banner extends React.Component {
 		return (
 			<div>
 			<BannerImage>
-			<BannerText> TITLE
-			</BannerText>
 			</BannerImage>
 			</div>
 		)
