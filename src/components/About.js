@@ -1,5 +1,4 @@
 import React from 'react'
-import GlobalNav from './GlobalNav';
 
 //stateless component
 const About = (props) => {

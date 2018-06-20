@@ -1,12 +1,11 @@
-
 import React from 'react';
 
-class FoodItem extends React.Component {
-	
-	render() {
-		return (
-			<div>
-			</div>
-		)
-	}
-}
+const FoodItem = (props) => {
+  return(
+		<div>
+			{props.food.name}
+		</div>
+  )
+};
+
+export default FoodItem
