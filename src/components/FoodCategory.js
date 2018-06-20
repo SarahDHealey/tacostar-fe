@@ -1,5 +1,4 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
 import BannerImage from './BannerImage';
 
 
@@ -9,6 +8,7 @@ const FoodCategory = (props) => {
 		<BannerImage>
 		</BannerImage>
 		<div className="container">
+		<h6>burritos</h6>
 		</div>
 		</div>
   )

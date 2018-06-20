@@ -60,7 +60,6 @@ class BurritoListContainer extends React.Component {
 		return (
 			<div>
 		  <FoodCategory />
-			<h1>menu</h1>
 				<div className="container">
 					{food.map(item => 
 						<FoodItem key={item.id} food={item} />)}
