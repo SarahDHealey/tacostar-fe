@@ -19,27 +19,25 @@ const GlobalNav = () => (
         <li><img src="images/logo3-transparency.png" className="x-small" alt="Responsive image"/>
         </li>
         <li><NavLink to="/" activeClassName="current" exact={true}>Home</NavLink></li>
-        <li>
-          <NavLink to="/food" activeClassName="current" exact={true}>Food</NavLink>
-          <ul>
-            <li><Link to="#">Lorem ipsum dolor</Link></li>
-            <li><Link to="#">Magna phasellus</Link></li>
-            <li><Link to="#">EtiLinkm dolore nisl</Link></li>
-            <li>
-              <Link to="#">Phasellus consequat</Link>
-              <ul>
-                <li><Link to="#">Magna phasellus</Link></li>
-                <li><Link to="#">Etiam dolore nisl</Link></li>
-                <li><Link to="#">Veroeros feugiat</Link></li>
-                <li><Link to="#">Nisl sed aliquam</Link></li>
-                <li><Link to="#">Dolore adipiscing</Link></li>
-              </ul>
-            </li>
-            <li><Link to="#">Veroeros feugiat</Link></li>
-          </ul>
+        <li className="nav-item dropdown">
+        <NavLink to="#" className="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Food</NavLink>
+        <div className="dropdown-menu">
+        <ul className="list-unstyled">
+        <li><NavLink to="#" className="dropdown-item">View All</NavLink></li>
+        <li><NavLink to="#" className="dropdown-item">Burritos</NavLink></li>
+        <li><NavLink to="#" className="dropdown-item">Tacos</NavLink></li>
+        <li><NavLink to="#" className="dropdown-item">Tortas</NavLink></li>
+        <li><NavLink to="#" className="dropdown-item">Combos</NavLink></li>
+        <li><NavLink to="#" className="dropdown-item">Tostadas</NavLink></li>
+        <li><NavLink to="#" className="dropdown-item">Enchiladas</NavLink></li>
+        <li><NavLink to="#" className="dropdown-item">Rolled Tacos</NavLink></li>
+        <li><NavLink to="#" className="dropdown-item">Breakfast Burritos</NavLink></li>
+        <li><NavLink to="#" className="dropdown-item">Breakfast Plates</NavLink></li>
+        </ul>
+      </div>
         </li>
-        <li><NavLink to="left-sidebar.html" activeClassName="current" exact={true}>Locations</NavLink></li>
-        <li><NavLink to="right-sidebar.html" activeClassName="current" exact={true}>Specials</NavLink></li>
+        <li><NavLink to="/locations" activeClassName="current" exact={true}>Locations</NavLink></li>
+        <li><NavLink to="/specials" activeClassName="current" exact={true}>Specials</NavLink></li>
         <li><NavLink to="/about" activeClassName="current" exact={true}>About</NavLink></li>
       </ul>
       <form className="form-inline">
@@ -52,6 +50,19 @@ const GlobalNav = () => (
 
 export default GlobalNav;
 
+// nav dropdown halfwork
+// <li>
+//         <div className="NavDropdown">
+//         <button activeClassName="btn current dropdown-toggle" exact={true} className="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+//         Dropdown button
+//         </button>
+//         <div activeClassName="current" className="dropdown-menu">
+//         <NavLink to="/" className="dropdown-item" href="#">Action</NavLink>
+//         <NavLink to="/"  className="dropdown-item" href="/">Another action</NavLink>
+//         <NavLink to="/"  className="dropdown-item" href="#">Something else here</NavLink>
+//       </div>
+//         </div>
+//         </li>
 
 // <nav className="my-navbar navbar-expand-lg">
 // <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">

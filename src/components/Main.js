@@ -1,8 +1,5 @@
 import React from 'react';
-import GlobalNav from './GlobalNav';
 import Banner from './Banner';
-
-import { Button } from 'react-bootstrap';
 
 export default class Main extends React.Component {
 	
