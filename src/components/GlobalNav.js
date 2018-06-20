@@ -14,7 +14,7 @@ import { FormGroup } from 'react-bootstrap';
 
 const GlobalNav = () => (
   <div>
-    <nav id="nav">
+    <nav className="navbar-sticky" id="nav">
       <ul>
         <li><img src="images/logo3-transparency.png" className="x-small" alt="Responsive image"/>
         </li>

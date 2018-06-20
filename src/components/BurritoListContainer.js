@@ -1,7 +1,9 @@
 import React from 'react';
 import FoodItem from './FoodItem';
+import FoodCategory from './FoodCategory';
 
-class FoodListContainer extends React.Component {
+
+class BurritoListContainer extends React.Component {
 	constructor() {
 		super()
 		this.state = {
@@ -11,7 +13,8 @@ class FoodListContainer extends React.Component {
 				description: 'Steak, Guacamole and Mexican Salsa',
 				category: 'Burritos',
 				imagesm: 'placeholder',
-				imagelg: 'placeholder'
+				imagelg: 'placeholder',
+				price: '6.24'
 			},
 			{
 				id: 2,
@@ -19,7 +22,8 @@ class FoodListContainer extends React.Component {
 				description: 'Beef, Beans, Bell Peppers, Tomatoes and Onions',
 				category: 'Burritos',
 				imagesm: 'placeholder',
-				imagelg: 'placeholder'
+				imagelg: 'placeholder',
+				price: '5.79'
 			},
 			{
 				id: 3,
@@ -27,7 +31,8 @@ class FoodListContainer extends React.Component {
 				description: 'Rice, Beans, Cheese and Enchilada Sauce',
 				category: 'Burritos',
 				imagesm: 'placeholder',
-				imagelg: 'placeholder'
+				imagelg: 'placeholder',
+				price: '5.74'
 			},
 			{
 				id: 4,
@@ -35,7 +40,8 @@ class FoodListContainer extends React.Component {
 				description: 'Sour Cream, Cheese, Lettuce and Tomato',
 				category: 'Burritos',
 				imagesm: 'placeholder',
-				imagelg: 'placeholder'
+				imagelg: 'placeholder',
+				price: '6.24'
 			},
 			{
 				id: 5,
@@ -43,7 +49,8 @@ class FoodListContainer extends React.Component {
 				description: '',
 				category: 'Burritos',
 				imagesm: 'placeholder',
-				imagelg: 'placeholder'
+				imagelg: 'placeholder',
+				price: '4.74'
 			}]
 		}
 	}
@@ -52,13 +59,16 @@ class FoodListContainer extends React.Component {
 		
 		return (
 			<div>
+		  <FoodCategory />
 			<h1>menu</h1>
-				{food.map(item => 
-					<FoodItem key={item.id} food={item} />)}
-      </div>
+				<div className="container">
+					{food.map(item => 
+						<FoodItem key={item.id} food={item} />)}
+				</div>
+			</div>
 			)
 	}
 }
 
 
-export default FoodListContainer;
+export default BurritoListContainer;

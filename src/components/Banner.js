@@ -5,7 +5,7 @@ export default class Banner extends React.Component {
 	
 	render() {
 		return (
-			<div>
+			<div className="banner-fixed-top">
 			<BannerImage>
 			</BannerImage>
 			</div>

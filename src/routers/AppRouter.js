@@ -1,7 +1,7 @@
 import React from 'react';
 import Main from '../components/Main';
 import About from '../components/About';
-import FoodListContainer from '../components/FoodListContainer';
+import BurritoListContainer from '../components/BurritoListContainer';
 import NotFound from '../components/NotFound';
 import GlobalNav from '../components/GlobalNav';
 import {Switch, BrowserRouter, Route} from 'react-router-dom';
@@ -14,7 +14,7 @@ const AppRouter = () => (
 			<GlobalNav />
 			<Switch>
 					<Route exact path="/" component={Main} />
-					<Route exact path="/food" component={FoodListContainer} />
+					<Route exact path="/food" component={BurritoListContainer} />
 					<Route exact path="/about" component={About} />
 					<Route component={NotFound} />
 			</Switch>

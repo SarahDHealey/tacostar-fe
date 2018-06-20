@@ -31,10 +31,13 @@
 
 /* Nav */
 #nav {
-	margin: 1em;
+	padding: 1em;
+	width: 100%;
 	display: flex !important;
 	justify-content: space-between;
 	padding-right: 12em;
+	position: fixed;
+	background-color: white;
 }
 #nav > ul {
 	margin: 0;
