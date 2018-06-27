@@ -1,0 +1,27 @@
+// .menu {
+// 	padding: 2em !important;
+// }
+
+.food-wrap-container {
+	display: flex;
+	flex-wrap: wrap !important;
+}
+.food-item {
+	display: flex;
+	flex-wrap: wrap !important;
+}
+
+.menu-page-title {
+	font-family: 'Raleway','Courier New', Courier, monospace;
+	font-weight: 900 !important;
+	color: red;
+	margin-top: 2rem;
+}
+
+.food-category {
+	font-family: 'Raleway','Courier New', Courier, monospace;
+	margin-left: 10rem !important;
+	font-weight: 900 !important;
+	color: #404040;;
+}
+

@@ -5,7 +5,7 @@ export default class BannerImage extends React.Component {
 	render() {
 		return (
 			<div>
-			<img className="main-banner-img" src="images/bannerIdea1.jpg" alt="Responsive image"/>
+			<img className="main-banner-img" src="images/bannerIdea2.jpg" alt="Responsive image"/>
 			</div>
 		)
 	}

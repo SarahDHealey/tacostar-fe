@@ -7,7 +7,7 @@ const FoodItem = (props) => {
 		<div className='item' xs={12} md={8}>
 			<h4>{props.food.name}</h4>
 			{props.food.description}
-			....... {props.food.price}
+			&emsp;&emsp;${props.food.price}
 		</div>
   )
 };
