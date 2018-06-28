@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class BannerImage extends React.Component {
+export default class HomeBannerImage extends React.Component {
 	
 	render() {
 		return (

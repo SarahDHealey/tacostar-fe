@@ -1,5 +1,5 @@
 import React from 'react';
-import Banner from './Banner';
+import HomeBanner from './HomeBanner';
 import MainReview from './MainReview';
 
 
@@ -8,7 +8,7 @@ export default class Main extends React.Component {
 	render() {
 		return (
 			<div>
-				<Banner></Banner>
+				<HomeBanner />
 				<MainReview></MainReview>
 			</div>
 		)
