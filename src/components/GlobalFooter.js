@@ -5,34 +5,52 @@ export default class GlobalFooter extends React.Component {
 	render() {
 		return (
 			<div>
-			<footer>
-				<div className="footer-container">
-					<div className="row justify-content-center offset-sm-1">
-							<div className="col-sm-2">
-								<h4>Taco Star</h4>
-								<p>You can find Taco Star locations in the Denver area and in Colorado Springs. We have over 10 locations in the state of Colorado</p>
-							</div>
-							<div className="col-sm-2 footer-links">
-								<Link to="#!">CONTACT US</Link>
-							</div>
-							<div className="col-sm-2 footer-links">
-								<Link to="#!">ABOUT US</Link>
-							</div>
-							<div className="col-sm-2 footer-links">
-								<Link to="#!">LOCATIONS</Link>
-							</div>
-							<div className="col-sm-2 footer-links">
-								<Link to="#!">CAREERS</Link>
-							</div>
-					</div>
-					</div>
-					<div>
-					<container className="copyright-well" align="center">
-							<p className="copyright">&copy; {(new Date().getFullYear())} Copyright: Taco Star LLC</p>
-					</container>
+			<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>TACO STAR</h3>
+
+				<p class="footer-links">
+					<a href="#">Home</a>
+					·
+					<a href="#">Food</a>
+					·
+					<a href="#">Locations</a>
+					·
+					<a href="#">Specials</a>
+					·
+					<a href="#">About</a>
+				</p>
+
+				<p class="footer-company-name">&copy; {(new Date().getFullYear())} Copyright: Taco Star LLC</p>
 			</div>
+
+
+			<div class="footer-center">
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+				<div class="footer-center">
+					<p><a href="support@tacostardining.com">support@tacostardining.com</a></p>
+				</div>
+			</div>
+
+			<div class="footer-right">
+				<div>
+					<form action="#" method="post">
+					<input type="text" name="email" placeholder="Email" />
+					<textarea name="message" placeholder="Message"></textarea>
+					<button>Send</button>
+					</form>
+				</div>
+			</div>
+
+
 				</footer>
 			</div>
 		)
 	}
 }
+

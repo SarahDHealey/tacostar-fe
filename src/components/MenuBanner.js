@@ -5,7 +5,7 @@ export default class MenuBanner extends React.Component {
 	render() {
 		return (
 			<div>
-				<img className="main-banner-img" src="images/bannerIdea1.jpg" alt="Responsive image"/>
+				<img className="menu-banner-img" src="images/condimentsclear.png" alt="Responsive image"/>
 			</div>
 		)
 	}

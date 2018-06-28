@@ -8,7 +8,9 @@ export default class MaMenuPage extends React.Component {
 	render() {
 		return (
 			<div>
+				<div align="center">
 				<MenuBanner></MenuBanner>
+				</div>
 				<div align="center">
 					<h3 className="menu-page-title">menu</h3>
 				</div>
