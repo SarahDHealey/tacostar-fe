@@ -2,13 +2,22 @@
 // 	padding: 2em !important;
 // }
 
-.food-wrap-container {
-	display: flex;
-	flex-wrap: wrap !important;
-}
+// .food-wrap-container {
+	// display: flex;
+	// flex-wrap: wrap !important;
+// 	display: grid;
+//   grid-template-columns: auto auto auto auto;
+// }
 .food-item {
 	display: flex;
 	flex-wrap: wrap !important;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .menu-page-title {
@@ -20,8 +29,26 @@
 
 .food-category {
 	font-family: 'Raleway','Courier New', Courier, monospace;
-	margin-left: 10rem !important;
 	font-weight: 900 !important;
 	color: #404040;;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 750px;
+	}
+	.item {
+		width: 100%;
+	}
+}
+@media (max-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (max-width: 1200px) {
+	.container {
+    width: 1170px;
+	}
 }
 

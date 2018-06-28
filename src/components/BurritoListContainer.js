@@ -140,7 +140,7 @@ class BurritoListContainer extends React.Component {
 		return (
 			<div>
 				<div>
-				<h6 className="food-category" align="left">burritos</h6>
+				<h6 className="container food-category">burritos</h6>
 				</div>
 				<div className="container food-item">
 					{food.map(item => 
