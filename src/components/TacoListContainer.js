@@ -1,7 +1,5 @@
 import React from 'react';
 import FoodItem from './FoodItem';
-import FoodCategory from './FoodCategory';
-
 
 class TacoListContainer extends React.Component {
 	constructor() {
@@ -60,14 +58,14 @@ class TacoListContainer extends React.Component {
 		return (
 			<div>
 				<div align="center">
-				<h6 className="food-category" align="left">tacos</h6>
+					<h6 className="food-category" align="left">tacos</h6>
 				</div>
 				<div className="container food-item">
 					{food.map(item => 
 						<FoodItem key={item.id} food={item} />)}
 				</div>
 			</div>
-			)
+		)
 	}
 }
 

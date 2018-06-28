@@ -1,6 +1,5 @@
 import React from 'react';
 import FoodItem from './FoodItem';
-import FoodCategory from './FoodCategory';
 
 
 class BurritoListContainer extends React.Component {

@@ -1,6 +1,4 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
-
 
 const FoodItem = (props) => {
   return(
@@ -11,8 +9,5 @@ const FoodItem = (props) => {
 		</div>
   )
 };
-
-
-
 
 export default FoodItem

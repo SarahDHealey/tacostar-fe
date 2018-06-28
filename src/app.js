@@ -5,18 +5,8 @@ import $ from 'jquery';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
-
-
 window.jQuery = $;
 window.$ = $;
-
-
-// import { Foundation } from 'foundation-sites/js/foundation.core';
-// import { Tooltip } from 'foundation-sites/js/foundation.tooltip';
-// import { Box } from 'foundation-sites/js/foundation.util.box';
-
-// Foundation.addToJquery($);
-// $(document).foundation();
 
 ReactDOM.render(
 	<AppRouter />,

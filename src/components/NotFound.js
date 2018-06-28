@@ -2,8 +2,6 @@ import React from 'react'
 import GlobalNav from './GlobalNav';
 import {Link} from 'react-router-dom';
 
-
-//stateless component
 const About = (props) => {
   return(
 		<div>

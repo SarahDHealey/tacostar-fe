@@ -10,5 +10,3 @@ export default class HomeBannerImage extends React.Component {
 		)
 	}
 }
-
-// <img className="main-banner-img" src="images/banner-screenshot-placeholder.png" alt="Responsive image"/>
