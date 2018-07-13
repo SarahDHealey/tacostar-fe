@@ -5,49 +5,47 @@ export default class GlobalFooter extends React.Component {
 	render() {
 		return (
 			<div>
-			<footer class="footer-distributed">
+				<footer className="footer-distributed">
 
-			<div class="footer-left">
+					<div className="footer-left">
 
-				<h3>TACO STAR</h3>
+						<h3>TACO STAR</h3>
 
-				<p class="footer-links">
-					<a href="#">Home</a>
-					·
-					<a href="#">Food</a>
-					·
-					<a href="#">Locations</a>
-					·
-					<a href="#">Specials</a>
-					·
-					<a href="#">About</a>
-				</p>
+						<p className="footer-links">
+							<a href="#">Home</a>
+							·
+							<a href="#">Food</a>
+							·
+							<a href="#">Locations</a>
+							·
+							<a href="#">Specials</a>
+							·
+							<a href="#">About</a>
+						</p>
 
-				<p class="footer-company-name">&copy; {(new Date().getFullYear())} Copyright: Taco Star LLC</p>
-			</div>
-
-
-			<div class="footer-center">
-				<p class="footer-company-about">
-					<span>About the company</span>
-					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
-				</p>
-				<div class="footer-center">
-					<p><a href="support@tacostardining.com">support@tacostardining.com</a></p>
-				</div>
-			</div>
-
-			<div class="footer-right">
-				<div>
-					<form action="#" method="post">
-					<input type="text" name="email" placeholder="Email" />
-					<textarea name="message" placeholder="Message"></textarea>
-					<button>Send</button>
-					</form>
-				</div>
-			</div>
+						<p className="footer-company-name">&copy; {(new Date().getFullYear())} Copyright: Taco Star LLC</p>
+					</div>
 
 
+					<div className="footer-center">
+						<p className="footer-company-about">
+							<span>About the company</span>
+							Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+						</p>
+						<div className="footer-center">
+							<p><a href="support@tacostardining.com">support@tacostardining.com</a></p>
+						</div>
+					</div>
+
+					<div className="footer-right">
+						<div>
+							<form action="#" method="post">
+							<input type="text" name="email" placeholder="Email" />
+							<textarea name="message" placeholder="Message"></textarea>
+							<button>Send</button>
+							</form>
+						</div>
+					</div>
 				</footer>
 			</div>
 		)

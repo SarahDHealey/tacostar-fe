@@ -1,0 +1,19 @@
+.main-map-right {
+  height: 100%;
+  top: var(--topbar-height);
+  left: 0;
+  overflow: hidden;
+
+  position: relative;
+  flex: 1;
+	z-index: 0;
+  width: 100%;
+  border-left: solid #d52349;
+  padding: 0px !important;
+}
+
+.notificationBar {
+  background-color: #d52349;
+  margin-top: 5em !important;
+  height: 3em;
+}

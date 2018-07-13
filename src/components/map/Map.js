@@ -1,12 +1,12 @@
 import React from 'react';
-import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+import { withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
 class Map extends React.Component {
 
   constructor() {
     super()
     this.state = {
-      map: null
+      map: null,
     }
   }
 
@@ -22,6 +22,13 @@ class Map extends React.Component {
       })
   }
 
+  handleMarkerClick = () => {
+    console.log('markerClicked:')
+    return this.setState({
+      isOpen: !this.state.isOpen,
+    })
+  }
+
   render() {
     const markers = [{
       id: 'Longmont',
@@ -32,13 +39,12 @@ class Map extends React.Component {
     {
       id: 'Northglenn',
       longitude: -104.999447,
-      latitude: 39.884618,
-
+      latitude: 39.884618
     },
     {
       id: 'Thornton',
       longitude: -104.980506,
-      latitude: 39.849385,
+      latitude: 39.849385
     },
     {
       id: 'Commerce City',
@@ -92,11 +98,16 @@ class Map extends React.Component {
         defaultCenter={this.props.center}
         defaultZoom={this.props.zoom}
       >
-
+      
       {markers.map(marker => (
         <Marker
+        key={marker.id}
         position={{ lat: marker.latitude, lng: marker.longitude }}
-        />
+        onClick={this.handleMarkerClick.bind(this)}
+        >
+          {this.state.isOpen && <InfoWindow onCloseClick={this.handleMarkerClick}>
+          <div>Hello</div></InfoWindow>}
+        </Marker>
       ))}
       </GoogleMap>
     )
