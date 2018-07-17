@@ -32,11 +32,13 @@ export class PlaceMarker extends React.Component {
 	
     return(
 			<div>
-				{markers.map(marker => (
+				{markers.map((marker, index) => (
 					<Marker
 					key={marker.id}
 					position={{ lat: marker.latitude, lng: marker.longitude }}
           onClick={() => this.handleMarkerClick(marker)}
+
+          label={JSON.stringify(index +1)}
           />
         ))}
         {this.state.activeMarker &&

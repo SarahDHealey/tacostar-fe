@@ -13,9 +13,10 @@ class MapSidebarContainer extends React.Component {
   render() {
     const markers = this.state.markers;
     return (
-			<div>
-      {markers.map(marker => (
-        <Sidebar key={marker.id} markerAddress={marker.address}/>
+      <div>
+      <h2>Restaurants</h2>
+      {markers.map((marker, index) => (
+        <Sidebar key={marker.id} number={index+1} markerAddress={marker.address} markerName={marker.id}/>
       ))}
       </div>
     )

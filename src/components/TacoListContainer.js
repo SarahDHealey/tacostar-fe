@@ -60,9 +60,9 @@ class TacoListContainer extends React.Component {
 				<div align="center">
 					<h6 className="food-category" align="left">tacos</h6>
 				</div>
-				<div className="container food-item">
+				<div className="card-columns">
 					{food.map(item => 
-						<FoodItem key={item.id} food={item} />)}
+						<div key={item.id} className="card bg-light text-dark bg-transparent"><FoodItem key={item.id} food={item} /></div>)}
 				</div>
 			</div>
 		)

@@ -140,11 +140,11 @@ class BurritoListContainer extends React.Component {
 		return (
 			<div>
 				<div>
-				<div className="container food-category"><img className="burrito-category" src="images/burritoIsol.png" alt="Responsive image"/></div>
+				<div className="container food-category"><img className="burrito-category"/></div>
 				</div>
-				<div className="container food-item">
+				<div className="card-columns">
 					{food.map(item => 
-						<FoodItem key={item.id} food={item} />)}
+						<div key={item.id} className="card bg-light text-dark bg-transparent"><FoodItem key={item.id} food={item}/></div>)}
 				</div>
 			</div>
 			)

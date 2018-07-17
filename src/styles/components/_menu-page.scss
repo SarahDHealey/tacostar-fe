@@ -8,29 +8,81 @@
 // 	display: grid;
 //   grid-template-columns: auto auto auto auto;
 // }
+.menuNotificationBar {
+	background-color: #d52349;
+  height: 1em;
+}
+
 .food-item {
 	display: flex;
 	flex-wrap: wrap !important;
+}
+
+// .sidebar {
+//   height: 100%;
+//   top: var(--topbar-height);
+//   left: 0;
+//   overflow: hidden;
+
+//   position: relative;
+//   flex: 1;
+// 	z-index: 0;
+// 	margin-top: 1em;
+// 	font-family: 'Raleway','Courier New', Courier, monospace;
+// 	padding-left: 2em !important;
+// }
+// .markerAddressUnits {
+// 	font-family: 'Raleway','Courier New', Courier, monospace;
+// 	padding-left: .8em !important;
+// 	font-size: smaller;
+// 	padding-top: 1em !important;
+// }
+
+// .markerAddressNotes {
+// 	font-family: 'Raleway','Courier New', Courier, monospace;
+// 	padding-left: .8em !important;
+// 	font-size: smaller;
+// 	margin-bottom: 0 !important;
+// }
+
+// .border {
+// 	border-bottom: solid 1px;
+// }
+
+
+
+
+
+
+
+
+.menu-banner-container {
+	height: 60%;
+	overflow: hidden;
 }
 
 .container {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
-  margin-left: auto;
+	margin-left: auto;
+}
+
+.divider {
+	border-bottom: solid 1px;
 }
 
 .menu-page-title {
 	font-family: 'Raleway','Courier New', Courier, monospace;
 	font-weight: 900 !important;
-	color: red;
+	color: #d52349;
 	margin-top: 2rem;
 }
 
 .food-category {
 	font-family: 'Raleway','Courier New', Courier, monospace;
 	font-weight: 900 !important;
-	color: #404040;;
+	color: #404040;
 }
 
 @media (max-width: 768px) {

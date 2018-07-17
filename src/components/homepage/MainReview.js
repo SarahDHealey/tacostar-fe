@@ -5,6 +5,7 @@ export default class MainReview extends React.Component {
 	render() {
 		return (
 			<div>
+			<div className="row bumper">
 				<div className="row justify-content-left">
 					<div className="col-sm-7 main-review-left">
 						<h4 className="review-page-title">Local family-owned restaurant chain providing fresh flavor packed mexican food 24/7</h4>
@@ -17,6 +18,7 @@ export default class MainReview extends React.Component {
 						<h3>24/7</h3>
 						<p>Enjoy Great Mexican Food at Anytime</p>
 					</div>
+				</div>
 				</div>
 			</div>
 		)

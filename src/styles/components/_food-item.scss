@@ -10,4 +10,11 @@
 .item {
 	width: 30%;
 	padding-top: 2em !important;
+	border: solid 1px;
+}
+
+.card-body {
+	display: inline-block;
+	margin: .6em;
+	width: 95%;
 }

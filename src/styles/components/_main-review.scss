@@ -15,17 +15,32 @@
 	font-style: italic;
 }
 
+.bumper {
+	// margin-top: 60rem !important;
+	position: relative;
+	width: 100%;
+	height: 250px !important;
+	margin: 0 !important;
+	background-color: white;
+	height: 30px;
+}
+
 .main-review-left {
+	// margin-top: 60rem !important;
+	padding-top: 10px;
 	margin-left: 5em;
 }
 
 .main-review-right {
-	margin-top: 5rem !important;
+	// margin-top: 64rem !important;
+	background-color: white;
+	padding-top: 3em;
 }
 
 .main-review-right > h3 {
 	font-family: 'Raleway','Courier New', Courier, monospace;
 	font-weight: 700 !important;
 	color: #404040;
+	background-color: white
 }
 
