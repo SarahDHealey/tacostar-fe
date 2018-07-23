@@ -12,15 +12,18 @@ const GlobalNav = () => (
           <div className="dropdown-menu">
             <ul className="list-unstyled">
               <li><NavLink to="/food" className="dropdown-item">View All</NavLink></li>
-              <li><NavLink to="#" className="dropdown-item">Burritos</NavLink></li>
-              <li><NavLink to="#" className="dropdown-item">Tacos</NavLink></li>
-              <li><NavLink to="#" className="dropdown-item">Tortas</NavLink></li>
-              <li><NavLink to="#" className="dropdown-item">Combos</NavLink></li>
-              <li><NavLink to="#" className="dropdown-item">Tostadas</NavLink></li>
-              <li><NavLink to="#" className="dropdown-item">Enchiladas</NavLink></li>
-              <li><NavLink to="#" className="dropdown-item">Rolled Tacos</NavLink></li>
-              <li><NavLink to="#" className="dropdown-item">Breakfast Burritos</NavLink></li>
-              <li><NavLink to="#" className="dropdown-item">Breakfast Plates</NavLink></li>
+              <li><NavLink to="/food/burritos" className="dropdown-item">Burritos</NavLink></li>
+              <li><NavLink to="/food/tacos" className="dropdown-item">Tacos</NavLink></li>
+              <li><NavLink to="/food/tortas" className="dropdown-item">Tortas</NavLink></li>
+              <li><NavLink to="/food/combination-plates" className="dropdown-item">Combos</NavLink></li>
+              <li><NavLink to="/food/side-orders" className="dropdown-item">Side Orders</NavLink></li>
+              <li><NavLink to="/food/tostadas" className="dropdown-item">Tostadas</NavLink></li>
+              <li><NavLink to="/food/enchiladas" className="dropdown-item">Enchiladas</NavLink></li>
+              <li><NavLink to="/food/rolled-tacos" className="dropdown-item">Rolled Tacos</NavLink></li>
+              <li><NavLink to="/food/breakfast-burritos" className="dropdown-item">Breakfast Burritos</NavLink></li>
+              <li><NavLink to="/food/breakfast-plates" className="dropdown-item">Breakfast Plates</NavLink></li>
+              <li><NavLink to="/food/drinks" className="dropdown-item">Drinks</NavLink></li>
+              <li><NavLink to="/food/aguas" className="dropdown-item">Aguas</NavLink></li>
             </ul>
           </div>
         </li>

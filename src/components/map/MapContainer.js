@@ -2,8 +2,6 @@ import React from 'react';
 import Map from './Map';
 import MapSidebarContainer from './MapSidebarContainer';
 
-
-
 export default class MapContainer extends React.Component {
   constructor(props) {
     super(props)

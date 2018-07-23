@@ -1,20 +1,12 @@
 
 
-.food-item {
-	display: flex;
-	flex-direction: row;
-	margin: 2em;
-	padding-right: 2em !important;
-}
-
-.item {
-	width: 30%;
-	padding-top: 2em !important;
-	border: solid 1px;
+.card-columns {
+	display: inline-block;
 }
 
 .card-body {
 	display: inline-block;
 	margin: .6em;
+	padding: 0% !important;
 	width: 95%;
 }
