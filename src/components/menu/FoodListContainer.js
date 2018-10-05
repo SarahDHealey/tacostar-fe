@@ -26,8 +26,8 @@ class FoodListContainer extends React.Component {
 							console.log('hi: '+foodListObj.category);
 							return (foodListObj.category == category);
 						})
-						.map(burritoList => 
-						<div key={burritoList.id}><FoodItem key={burritoList.id} food={burritoList.items}/></div>)}
+						.map(menuList => 
+						<div key={menuList.id}><FoodItem key={menuList.id} food={menuList.items}/></div>)}
 				</div>
 			</div>
 			)

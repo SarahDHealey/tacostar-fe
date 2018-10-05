@@ -4,6 +4,9 @@ import About from '../components/About';
 import MenuPage from '../components/menu/MenuPage';
 import MenuPageWrapper from '../components/menu/MenuPageWrapper';
 import MapContainer from '../components/map/MapContainer';
+// import LocationDetail from '../components/locations/LocationDetail';
+import LocationMain from '../components/locations/LocationMain';
+
 import NotFound from '../components/NotFound';
 import GlobalNav from '../components/GlobalNav';
 import GlobalFooter from '../components/GlobalFooter';
@@ -21,6 +24,7 @@ const AppRouter = () => (
 					<Route path="/food/:category" component={MenuPageWrapper}/>
 					<Route path="/food" component={MenuPage}/>
 					<Route exact path="/about" component={About} />
+					<Route exact path="/locations/:name" component={LocationMain} />
 					<Route exact path="/locations" component={MapContainer} />
 					<Route component={NotFound} />
 			</Switch>

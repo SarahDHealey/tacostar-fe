@@ -2,3 +2,11 @@ node_modules
 *~
 bundle.js
 bundle.min.js
+.env
+.ttf
+.woff
+.png
+.jpg
+.tif
+.psd
+.gif

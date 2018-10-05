@@ -1,5 +1,6 @@
 import React from 'react';
 import {searchNearby} from '../../utils/googleApiHelpers'
+import { NavLink } from 'react-router-dom';
 
 class Sidebar extends React.Component {
 	constructor(props) {
@@ -18,7 +19,7 @@ class Sidebar extends React.Component {
     return (
 			<div className='markerAddressUnits border-top'>
 				<p className='markerAddressNotes'>{number}. {name}</p>
-				<p className='markerAddressNotes'>{address} <br />more info</p>
+				<p className='markerAddressNotes'>{address} <br /><NavLink to={"/locations/" + name.toLowerCase()} className="dropdown-item">more info</NavLink></p>
 			</div>
     )
   }

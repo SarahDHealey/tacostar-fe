@@ -3,6 +3,7 @@
 @import './components/nav';
 @import './components/about';
 @import './components/main';
+@import './components/location-banner';
 @import './components/banner-image';
 @import './components/banner-text';
 @import './components/food-category';
@@ -23,6 +24,6 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 @font-face {
-	font-family: mexicanTequila;
-	src: url('/MexicanTequila.ttf'); 
+	font-family: 'Onestarsh';
+	src: url('/Onestarsh.woff');
 }

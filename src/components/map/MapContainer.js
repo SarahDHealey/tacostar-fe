@@ -2,6 +2,7 @@ import React from 'react';
 import Map from './Map';
 import MapSidebarContainer from './MapSidebarContainer';
 
+
 export default class MapContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -33,15 +34,6 @@ export default class MapContainer extends React.Component {
         content: '503 E 84th Ave, Thornton, CO 80229'
       },
       {
-        id: 'Commerce City',
-        area: 'Denver',
-        longitude: -104.932156,
-        latitude: 39.805255,
-        address: '4850 E 60th Ave, Commerce City, CO 80022',
-        zipcode: 80022,
-        content: '4850 E 60th Ave, Commerce City, CO 80022'
-      },
-      {
         id: 'Aurora',
         area: 'Denver',
         longitude: -104.865299,
@@ -58,15 +50,6 @@ export default class MapContainer extends React.Component {
         address: '7434 Rangewood Dr, Colorado Springs, CO 80920',
         zipcode: 80920,
         content: '7434 Rangewood Dr, Colorado Springs, CO 80920'
-      },
-      {
-        id: 'Academy',
-        area: 'Colorado Springs',
-        longitude: -104.765754,
-        latitude: 38.901217,
-        address: '4701 Academy Blvd Colorado Springs, CO 80918',
-        zipcode: 80918,
-        content: '4701 Academy Blvd Colorado Springs, CO 80918'
       },
       {
         id: 'Fillmore',
@@ -93,14 +76,14 @@ export default class MapContainer extends React.Component {
         latitude: 38.838526,
         address: '318 Wahsatch Avenue, Colorado Springs, CO 80903',
         zipcode: 80903,
-        content: '318 Wahsatch Avenue, Colorado Springs, CO 80903'
+        content: '318 Wahsatch Avenue, Colorado Springs, CO 80903',
+        moreinfo: 'link here?'
       }]
     }
   }
   
-  
   render() {
-    const markers = this.state.markers
+    const markers = this.state.markers;
     return (
       <div>
         <div className="row notificationBar primary-alert"></div>
@@ -110,7 +93,7 @@ export default class MapContainer extends React.Component {
           </div>
           <div className="col-sm-9 main-map-right" align="left">
           <Map
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=placeholder&libraries=geometry,drawing,places"
+            googleMapURL={process.env.API_URL}
             center={{ lat: 39.265943, lng: -104.931300 }}
             zoom={8.4}
             loadingElement={<div style={{ height: '100%', width: '100%' }} />}

@@ -1,15 +1,18 @@
-const FoodData = [
+import { withReducer } from "recompose";
+
+let FoodData = [
 	{
 		id: 1,
 		category: 'burritos',
+		categoryImage: 'https://s3-us-west-1.amazonaws.com/tacostar/burrito.jpg',
 		items: [
 			{
 				id: 'BUR1',
 				name: 'Carne Asada',
 				description: 'Steak, Guacamole and Mexican Salsa',
 				imagesm: 'placeholder',
-				imagelg: 'placeholder',
-				price: ['6.24']
+				imagelg: 'https://s3-us-west-1.amazonaws.com/tacostar/burrito.jpg',
+				price: ['6.24'] 
 			},
 			{
 				id: 'BUR2',
@@ -537,37 +540,33 @@ const FoodData = [
 			imagesm: 'placeholder',
 			imagelg: 'placeholder',
 			price: ['2.00']
-		}]
-	},
-	{
-		id: 7,
-		category: 'tostadas',
-		items: [{
-			id: 'TOS1',
-			name: 'Cheese',
+		},
+		{
+			id: 'SOR16',
+			name: 'Cheese Tostadas',
 			description: '',
 			imagesm: 'placeholder',
 			imagelg: 'placeholder',
 			price: ['2.25']
 		},
 		{
-			id: 'TOS2',
-			name: 'Beef',
+			id: 'SOR17',
+			name: 'Beef Tostadas',
 			description: '',
 			imagesm: 'placeholder',
 			imagelg: 'placeholder',
 			price: ['2.25']
 		},
 		{
-			id: 'TOS3',
-			name: 'Bean',
+			id: 'SOR18',
+			name: 'Bean Tostadas',
 			description: '',
 			imagesm: 'placeholder',
 			imagelg: 'placeholder',
 			price: ['2.10']
 		},
 		{
-			id: 'TOS4',
+			id: 'SOR19',
 			name: 'Flying Saucer with Beef or Chicken',
 			description: '',
 			imagesm: 'placeholder',
@@ -576,7 +575,7 @@ const FoodData = [
 		}]
 	},
 	{
-		id: 8,
+		id: 7,
 		category: 'enchiladas',
 		items: [{
 			id: 'ENC1',
@@ -612,7 +611,7 @@ const FoodData = [
 		}]
 	},
 	{
-		id: 9,
+		id: 8,
 		category: 'rolled-tacos',
 		items: [{
 			id: 'RTA1',
@@ -632,7 +631,7 @@ const FoodData = [
 		}]
 	},
 	{
-		id: 10,
+		id: 9,
 		category: 'breakfast-burritos',
 		items: [{
 			id: 'BBU1',
@@ -692,7 +691,7 @@ const FoodData = [
 		}]
 	},
 	{
-		id: 11,
+		id: 10,
 		category: 'breakfast-plates',
 		items: [{
 			id: 'BPL1',
@@ -736,7 +735,7 @@ const FoodData = [
 		}]
 	},
 	{
-		id: 12,
+		id: 11,
 		category: 'drinks',
 		items: [{
 			id: 'DRI1',
@@ -745,16 +744,11 @@ const FoodData = [
 			imagesm: 'placeholder',
 			imagelg: 'placeholder',
 			price: ['1.75, $2.00']
-		}]
-	},
-	{
-		id: 13,
-		category: 'aguas',
-		items: [{
-			id: 1,
+		},
+		{
+			id: 'DRI2',
 			name: 'Horchata, Pina, Jamaica',
 			description: 'Medium, Large',
-			category: 'Enchiladas',
 			imagesm: 'placeholder',
 			imagelg: 'placeholder',
 			price: ['1.85, $2.10']
@@ -763,3 +757,34 @@ const FoodData = [
 ]
 
 export default FoodData
+
+//go through the list, use reduce see if you can concatenate each time. 
+
+
+function compileAll(FoodData) {
+  var viewAll = [];
+  for (var i=0; i< FoodData.length -1; i++) {
+    viewAll.push(FoodData[i].items);
+  }
+  var merged = [].concat.apply([], viewAll);
+  return merged
+}
+
+let all = {
+	items: compileAll(FoodData)
+}
+
+FoodData.push(all);
+
+// make all and then push all to foodItems.
+
+//go through each of the food items and take the food items[i] 
+//create an items list
+
+//array of objects within an array of objects
+//we are trying to filter out the items from the objects within the array
+//output items: [objects]
+//then map those objects to 
+//items: [{}{}{}{}{}{}] 
+
+//var result = foodItems.map(a => a.items);

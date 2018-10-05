@@ -5,7 +5,7 @@ export default class FoodItem extends React.Component {
 	render() {
 		console.log('grrrrrrr: '+ JSON.stringify(this.props.food))
 		return(
-			<div className="card-body">
+			<div className="card-column">
 			{
 				this.props.food.map(item => 
 					<div key={item.id} className="card col-md-12">

@@ -5,7 +5,7 @@ const GlobalNav = () => (
   <div>
     <nav className="navbar-sticky fixed-top" id="nav">
       <ul>
-        <li><img src="images/logo3-transparency.png" className="x-small" alt="Responsive image"/></li>
+        <li><img src="https://s3-us-west-1.amazonaws.com/tacostar/logo-letters.png" className="x-small" alt="home logo"/></li>
         <li><NavLink to="/" activeClassName="current" exact={true}>Home</NavLink></li>
         <li className="nav-item dropdown">
           <NavLink to="#" className="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Food</NavLink>
@@ -17,18 +17,15 @@ const GlobalNav = () => (
               <li><NavLink to="/food/tortas" className="dropdown-item">Tortas</NavLink></li>
               <li><NavLink to="/food/combination-plates" className="dropdown-item">Combos</NavLink></li>
               <li><NavLink to="/food/side-orders" className="dropdown-item">Side Orders</NavLink></li>
-              <li><NavLink to="/food/tostadas" className="dropdown-item">Tostadas</NavLink></li>
               <li><NavLink to="/food/enchiladas" className="dropdown-item">Enchiladas</NavLink></li>
               <li><NavLink to="/food/rolled-tacos" className="dropdown-item">Rolled Tacos</NavLink></li>
               <li><NavLink to="/food/breakfast-burritos" className="dropdown-item">Breakfast Burritos</NavLink></li>
               <li><NavLink to="/food/breakfast-plates" className="dropdown-item">Breakfast Plates</NavLink></li>
               <li><NavLink to="/food/drinks" className="dropdown-item">Drinks</NavLink></li>
-              <li><NavLink to="/food/aguas" className="dropdown-item">Aguas</NavLink></li>
             </ul>
           </div>
         </li>
         <li><NavLink to="/locations" activeClassName="current" exact={true}>Locations</NavLink></li>
-        <li><NavLink to="/specials" activeClassName="current" exact={true}>Specials</NavLink></li>
         <li><NavLink to="/about" activeClassName="current" exact={true}>About</NavLink></li>
       </ul>
       <form className="form-inline">
@@ -40,3 +37,5 @@ const GlobalNav = () => (
 );
 
 export default GlobalNav;
+
+// <li><NavLink to="/specials" activeClassName="current" exact={true}>Specials</NavLink></li>

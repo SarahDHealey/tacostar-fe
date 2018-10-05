@@ -1,6 +1,7 @@
 import React from 'react';
 import { withGoogleMap, GoogleMap } from 'react-google-maps';
 import PlaceMarker from './PlaceMarker'
+
 class Map extends React.Component {
   constructor(props) {
     super(props)
@@ -20,8 +21,9 @@ class Map extends React.Component {
         map: map
       })
   }
+
   render() {
-    const markers = this.state.markers;
+    console.log(this.state.markers)
     return (
       <GoogleMap
         ref={this.mapLoaded.bind(this)}
@@ -29,7 +31,7 @@ class Map extends React.Component {
         defaultCenter={this.props.center}
         defaultZoom={this.props.zoom}
       >
-      <PlaceMarker markers={markers}/>
+      <PlaceMarker markers={this.state.markers}/>
       </GoogleMap>
     )
   }

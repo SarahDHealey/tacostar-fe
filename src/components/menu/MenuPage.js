@@ -6,10 +6,12 @@ import FoodListContainer from './FoodListContainer';
 export default class MenuPage extends React.Component {
 	render() {
 		console.log(this.props.category);
+		console.log(this.props.categoryImage);
+
 		return (
 			<div>
 				<div align="center">
-				<MenuBanner></MenuBanner>
+				<MenuBanner category={this.props.category || 'menu'}></MenuBanner>
 				<div className="row menuNotificationBar"></div>
 				</div>
 				<div align="center">
