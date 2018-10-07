@@ -1,39 +1,50 @@
 import React from 'react';
-import { withGoogleMap, GoogleMap } from 'react-google-maps';
-import PlaceMarker from './PlaceMarker'
+import ReactDOM from 'react-dom';
 
 class Map extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      map: null,
-      isOpen: false,
-      markers: this.props.markers
+  componentDidMount() {
+    this.loadMap();
+  }
+  
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.google !== this.props.google) {
+      this.loadMap();
     }
   }
-  mapMoved() {
-    console.log('mapMoved:'+ JSON.stringify(this.state.map.getCenter()))
-  }
-  mapLoaded(map) {
-    if (this.state.map != null) 
-      return 
-      this.setState({
-        map: map
+
+  loadMap() {
+    if (this.props && this.props.google) {
+      // google is available
+      const {google} = this.props;
+      const maps = google.maps;
+      
+      const mapRef = this.refs.map;
+      const node = ReactDOM.findDOMNode(mapRef);
+      
+      let zoom = 8.4;
+      let lat = 39.265943;
+      let lng = -104.931300;
+      const center = new maps.LatLng(lat, lng);
+      const mapConfig = Object.assign({}, {
+        center: center,
+        zoom: zoom
       })
+      this.map = new maps.Map(node, mapConfig);
+      console.log("Setting map on " + this.map)
+    }
   }
 
   render() {
-    console.log(this.state.markers)
+    const style = {
+      width: '100vw',
+      height: '100vh'
+    }
     return (
-      <GoogleMap
-        ref={this.mapLoaded.bind(this)}
-        onDragEnd={this.mapMoved.bind(this)}
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
-      >
-      <PlaceMarker markers={this.state.markers}/>
-      </GoogleMap>
+      <div ref='map' style={style} >
+        Loading map...
+      </div>
     )
   }
 }
-export default withGoogleMap(Map)
+
+export default Map;
