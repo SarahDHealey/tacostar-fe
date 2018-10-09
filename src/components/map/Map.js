@@ -27,7 +27,7 @@ class Map extends React.Component {
       const center = new maps.LatLng(lat, lng);
       const mapConfig = Object.assign({}, {
         center: center,
-        zoom: zoom
+        zoom: zoom,
       })
       this.map = new maps.Map(node, mapConfig);
       console.log("Setting map on " + this.map)

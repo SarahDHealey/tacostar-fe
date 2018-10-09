@@ -34,15 +34,15 @@ export const wrapper = (options) => (WrappedComponent) => {
         let center = new maps.LatLng(this.props.lat, this.props.lng)
 
         let mapConfig = Object.assign({}, defaultMapConfig, {
-          center, zoom: this.props.zoom
+					center, zoom: this.props.zoom,
         })
 
         this.map = new maps.Map(node, mapConfig);
 
         this.setState({
-          loaded: true,
-          map: this.map,
-          google: window.google
+        	loaded: true,
+					map: this.map,
+					google: window.google,
         })
       });
       this.forceUpdate();

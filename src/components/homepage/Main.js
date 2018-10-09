@@ -9,7 +9,7 @@ export default class Main extends React.Component {
 		return (
 			<div>
 				<HomeBanner />
-				<MainReview></MainReview>
+				<MainReview/>
 			</div>
 		)
 	}
