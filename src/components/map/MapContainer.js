@@ -3,7 +3,8 @@ import Map from './Map';
 import * as config from '../../config'
 import GoogleApiComponent from './GoogleApiComponent'
 import MapSidebarContainer from './MapSidebarContainer'
-
+import {PlaceMarker} from 'react-google-maps'
+import {InfoWindow} from 'react-google-maps'
 
 export class MapContainer extends React.Component {
   constructor(props) {	
@@ -84,7 +85,7 @@ export class MapContainer extends React.Component {
     }	
   }
   render() {
-        const markers = this.state.markers;	
+    const markers = this.state.markers;
     if (!this.props.loaded) {
       console.log('hi')
       return <div>Loading...</div>
@@ -98,11 +99,10 @@ export class MapContainer extends React.Component {
         <div className="row notificationBar primary-alert"></div>
         <div className="row justify-content-left">
           <div className="col-sm-3 sidebar">	
-              <MapSidebarContainer markers={markers}/>	
+              <MapSidebarContainer/>	
           </div>
           <div className="col-sm-9 main-map-right" align="left">
-            <Map google={this.props.google} markers={markers}	
-            >
+            <Map google={this.props.google} markers={markers}>
             </Map>
           </div>
         </div>
@@ -115,3 +115,13 @@ let key = config.getGoogleKey()
 export default GoogleApiComponent({
   apiKey: key
 })(MapContainer)
+
+
+
+// <InfoWindow {...this.props}
+// marker={this.props.activeMarker}
+// visible={this.props.showingInfoWindow}>
+//   <div>
+//     <h4>{this.props.selectedTitle}</h4>
+//   </div>
+// </InfoWindow>

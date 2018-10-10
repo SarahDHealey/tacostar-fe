@@ -20,17 +20,25 @@ class Map extends React.Component {
       
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
-      
+      const uluru = {lat: -25.344, lng: 131.036};
+
       let zoom = 8.4;
       let lat = 39.265943;
       let lng = -104.931300;
+
+
       const center = new maps.LatLng(lat, lng);
       const mapConfig = Object.assign({}, {
         center: center,
         zoom: zoom,
       })
       this.map = new maps.Map(node, mapConfig);
+      //this is the spike. Can I add a marker here to map?
+      const marker = new google.maps.Marker({position: uluru, map: this.map});
+
+
       console.log("Setting map on " + this.map)
+      console.log("marker*******: ", marker)
     }
   }
 
