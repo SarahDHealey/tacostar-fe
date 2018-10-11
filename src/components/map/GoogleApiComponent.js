@@ -6,6 +6,7 @@ import GoogleApi from './utils/GoogleApi'
 
 const defaultMapConfig = {}
 export const wrapper = (options) => (WrappedComponent) => {
+	console.log(WrappedComponent)
   const apiKey = options.apiKey;
   const libraries = options.libraries || ['places'];
 

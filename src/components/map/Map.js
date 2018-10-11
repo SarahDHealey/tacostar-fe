@@ -1,8 +1,48 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+import {camelize} from '../../lib/String';
+
+const evtNames = ['click', 'dragend'];
+
+//googleApi component loads to the screen
+//googleApi component creates a google map component
+/*googleApi component then passes that google map component
+to this Map component as a prop*/
+
+/*Because we wrap the Map parent, the MapContainer 
+component, with the googleApi*/
+//we can check for either a new prop
+/*or we can check to see if the component has mounted
+*to see if/when we get a link to the window.google library*/
 
 class Map extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const {lat, lng} = this.props.initialCenter;
+    this.state = {
+      currentLocation: {
+        lat: lat, 
+        lng: lng
+      }
+    }
+  }
+
   componentDidMount() {
+    if (this.props.centerAroundCurrentLocation) {
+      if (navigator && navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((pos) => {
+          const coords = pos.coords;
+          this.setState({
+            currentLocation: {
+              lat: coords.latitude,
+              lng: coords.longitude
+            }
+          })
+        })
+      }
+    }
     this.loadMap();
   }
   
@@ -10,37 +50,73 @@ class Map extends React.Component {
     if (prevProps.google !== this.props.google) {
       this.loadMap();
     }
+    if (prevState.currentLocation !== this.state.currentLocation) {
+      this.recenterMap();
+    }
+  }
+  recenterMap() {
+    const map = this.map;
+    const curr = this.state.currentLocation;
+    const google = this.props.google;
+    const maps = google.maps;
+
+    if (map) {
+        let center = new maps.LatLng(curr.lat, curr.lng)
+        map.panTo(center)
+    }
   }
 
+//run the gapi functions to create the map
   loadMap() {
     if (this.props && this.props.google) {
       // google is available
       const {google} = this.props;
       const maps = google.maps;
       
+      /*grab a reference to the DOM component
+      where we want to place the map*/
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
-      const uluru = {lat: -25.344, lng: 131.036};
-
-      let zoom = 8.4;
-      let lat = 39.265943;
-      let lng = -104.931300;
-
-
-      const center = new maps.LatLng(lat, lng);
+      const curr = this.state.currentLocation;
+      const center = new maps.LatLng(curr.lat, curr.lng);
+      
+      //use default props from below
+      let {initialCenter, zoom} = this.props;
+      const {lat, lng} = initialCenter;
       const mapConfig = Object.assign({}, {
         center: center,
-        zoom: zoom,
+        zoom: zoom
       })
+      //the maps.Map() constructor
       this.map = new maps.Map(node, mapConfig);
-      //this is the spike. Can I add a marker here to map?
-      const marker = new google.maps.Marker({position: uluru, map: this.map});
-
-
-      console.log("Setting map on " + this.map)
-      console.log("marker*******: ", marker)
+      
+      //events
+      //rename events like click to onClick
+      evtNames.forEach(e => {
+        this.map.addListener(e, this.handleEvent(e));
+      });
     }
   }
+
+  handleEvent(evtName) {
+    let timeout;
+    const handlerName = `on${camelize(evtName)}`;
+
+    return e => {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+      timeout = setTimeout(() => {
+        if (this.props[handlerName]) {
+          this.props[handlerName](this.props, this.map, e);
+        }
+      }, 0);
+    };
+  }
+/*grab a reference to the DOM component
+where we want the map to be placed*/
+//this references the div in our render with ref='map'
 
   render() {
     const style = {
@@ -54,5 +130,26 @@ class Map extends React.Component {
     )
   }
 }
+
+Map.propTypes = {
+  google: PropTypes.object,
+  zoom: PropTypes.number,
+  initialCenter: PropTypes.object,
+  centerAroundCurrentLocation: PropTypes.bool,
+  onMove: PropTypes.func
+}
+
+evtNames.forEach(e => (Map.propTypes[camelize(e)] = PropTypes.func));
+
+Map.defaultProps = {
+  zoom: 7,
+  initialCenter: {
+    lat: 39.265943,
+    lng: -104.931300
+  },
+  centerAroundCurrentLocation: false,
+  onMove: function() {}
+}
+
 
 export default Map;
