@@ -3,7 +3,7 @@ import Map from './Map';
 import * as config from '../../config'
 import GoogleApiComponent from './GoogleApiComponent'
 import MapSidebarContainer from './MapSidebarContainer'
-import {PlaceMarker} from 'react-google-maps'
+import {PlaceMarker} from './PlaceMarker'
 import {InfoWindow} from 'react-google-maps'
 
 export class MapContainer extends React.Component {
@@ -94,6 +94,8 @@ export class MapContainer extends React.Component {
       width: '100vw',
       height: '100vh'
     }
+    /*Marker components 
+    are children of the Map component*/
     return (
       <div>
         <div className="row notificationBar primary-alert"></div>
@@ -102,7 +104,8 @@ export class MapContainer extends React.Component {
               <MapSidebarContainer/>	
           </div>
           <div className="col-sm-9 main-map-right" align="left">
-            <Map google={this.props.google} markers={markers}>
+            <Map google={this.props.google}>
+              <PlaceMarker/>
             </Map>
           </div>
         </div>

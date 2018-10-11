@@ -1,59 +1,98 @@
-import React from 'react';
-import { Marker } from 'react-google-maps';
-import { InfoWindow } from 'react-google-maps'
+import React from 'react'
+import PropTypes from 'prop-types';
+
+import { camelize } from '../../lib/String'
+const evtNames = ['click', 'mouseover', 'recenter'];
+
+const wrappedPromise = function() {
+    var wrappedPromise = {},
+        promise = new Promise(function (resolve, reject) {
+            wrappedPromise.resolve = resolve;
+            wrappedPromise.reject = reject;
+        });
+    wrappedPromise.then = promise.then.bind(promise);
+    wrappedPromise.catch = promise.catch.bind(promise);
+    wrappedPromise.promise = promise;
+
+    return wrappedPromise;
+}
 
 export class PlaceMarker extends React.Component {
-  constructor(props) {
-    super(props)
-     this.state = {
-      isOpen: false,
-      markers: this.props.markers
+
+  componentDidMount() {
+    this.markerPromise = wrappedPromise();
+    this.renderMarker();
+  }
+
+  componentDidUpdate(prevProps) {
+    if ((this.props.map !== prevProps.map) ||
+        (this.props.position !== prevProps.position)) {
+        this.renderMarker();
     }
   }
-  
-  handleInfoWindowClose() {
-      this.setState({ activeMarker: null })
-      return
+
+  componentWillUnmount() {
+    if (this.marker) {
+      this.marker.setMap(null);
+    }
   }
 
-	handleMarkerClick(marker) {
-    // console.log(this.state.activeMarker)
-		this.setState({
-			activeMarker: {
-				lat: marker.latitude,
-				lng: marker.longitude
-      },
-      activeContent: marker.content
-		})
-	}
+  renderMarker() {
+    if (this.marker) {
+      this.marker.setMap(null);
+    }
+    let {
+      map, google, position, mapCenter
+    } = this.props;
+    if (!google) {
+      return null
+    }
+
+    let pos = position || mapCenter;
+    if (!(pos instanceof google.maps.LatLng)) {
+      position = new google.maps.LatLng(pos.lat, pos.lng);
+    }
+
+    const pref = {
+      map: map,
+      position: position
+    };
+    this.marker = new google.maps.Marker(pref);
+
+    evtNames.forEach(e => {
+      this.marker.addListener(e, this.handleEvent(e));
+    });
+
+    this.markerPromise.resolve(this.marker);
+  }
+
+  getMarker() {
+    return this.markerPromise;
+  }
+
+  handleEvent(evt) {
+    return (e) => {
+      const evtName = `on${camelize(evt)}`
+      if (this.props[evtName]) {
+        this.props[evtName](this.props, this.marker, e);
+      }
+    }
+  }
 
   render() {
-    const markers = this.state.markers
-	
-    return(
-			<div>
-				{markers.map((marker, index) => (
-					<Marker
-					key={marker.id}
-					position={{ lat: marker.latitude, lng: marker.longitude }}
-          onClick={() => this.handleMarkerClick(marker)}
-
-          label={JSON.stringify(index +1)}
-          />
-        ))}
-        {this.state.activeMarker &&
-          <InfoWindow 
-            position={this.state.activeMarker}
-            options={{pixelOffset: new google.maps.Size(0,-30)}}
-            onCloseClick={() => this.handleInfoWindowClose()}
-            >
-        <div>
-          <h5>{this.state.activeContent}</h5>
-        </div>
-      </InfoWindow>}
-			</div>
-    );
+    return null;
   }
+}
+
+PlaceMarker.propTypes = {
+  position: PropTypes.object,
+  map: PropTypes.object
+}
+
+evtNames.forEach(e => PlaceMarker.propTypes[e] = PropTypes.func)
+
+PlaceMarker.defaultProps = {
+  name: 'PlaceMarker'
 }
 
 export default PlaceMarker

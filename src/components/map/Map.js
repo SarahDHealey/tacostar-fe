@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import {camelize} from '../../lib/String';
 
-const evtNames = ['click', 'dragend'];
+const evtNames = ['ready', 'click', 'dragend'];
 
 //googleApi component loads to the screen
 //googleApi component creates a google map component
@@ -54,6 +54,7 @@ class Map extends React.Component {
       this.recenterMap();
     }
   }
+//recenterMap fn
   recenterMap() {
     const map = this.map;
     const curr = this.state.currentLocation;
@@ -64,6 +65,21 @@ class Map extends React.Component {
         let center = new maps.LatLng(curr.lat, curr.lng)
         map.panTo(center)
     }
+  }
+//renderChildren fn
+  renderChildren() {
+    const {children} = this.props;
+
+    if (!children) return;
+
+    return React.Children.map(children, c => {
+      if (!c) return;
+      return React.cloneElement(c, {
+        map: this.map,
+        google: this.props.google,
+        mapCenter: this.state.currentLocation
+      });
+    });
   }
 
 //run the gapi functions to create the map
@@ -95,6 +111,8 @@ class Map extends React.Component {
       evtNames.forEach(e => {
         this.map.addListener(e, this.handleEvent(e));
       });
+      maps.event.trigger(this.map, 'ready');
+      this.forceUpdate();
     }
   }
 
@@ -126,6 +144,7 @@ where we want the map to be placed*/
     return (
       <div ref='map' style={style} >
         Loading map...
+        {this.renderChildren()}
       </div>
     )
   }
