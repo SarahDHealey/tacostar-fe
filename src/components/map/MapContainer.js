@@ -3,7 +3,7 @@ import Map from './Map';
 import * as config from '../../config'
 import GoogleApiComponent from './GoogleApiComponent'
 import MapSidebarContainer from './MapSidebarContainer'
-import {InfoWindow} from 'react-google-maps'
+import {InfoWindow} from './InfoWindow';
 import { PlaceMarker } from './PlaceMarker';
 
 
@@ -86,17 +86,28 @@ export class MapContainer extends React.Component {
       }]	
     }	
   }
+  getInitialState() {
+    return {
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {}
+    }
+  }
+
   handleInfoWindowClose() {
     this.setState({ activeMarker: null })
     return
-}
-
-  handleMarkerClick = (marker) => {
-    console.log('markerClicked:',marker)
-    return this.setState({
-      isOpen: !this.state.isOpen
-    })
   }
+
+  handleMarkerClick = ((props,marker,e) => {
+    console.log('marker', marker)
+    console.log(props)
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+  })
 
   render() {
     const markers = this.state.markers;
@@ -110,7 +121,6 @@ export class MapContainer extends React.Component {
     }
     /*Marker components 
     are children of the Map component*/
-    const pos = {lat: 38.838526, lng: -104.818083}
     return (
       <div>
         <div className="row notificationBar primary-alert"></div>
@@ -128,6 +138,13 @@ export class MapContainer extends React.Component {
               onClick={this.handleMarkerClick.bind(this)}
               />
             ))}
+            <InfoWindow
+              marker={this.state.activeMarker}
+              visible={this.state.showingInfoWindow}>
+              <div>
+                <h1>hi</h1>
+              </div>
+            </InfoWindow>
             </Map>
           </div>
         </div>

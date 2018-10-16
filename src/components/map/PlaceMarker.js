@@ -13,6 +13,11 @@ export class PlaceMarker extends React.Component {
         this.renderMarker();
     }
   }
+  componentWillUnmount() {
+    if (this.marker) {
+      this.marker.setMap(null);
+    }
+  }
 
   handleEvent(evt) {
     return (e) => {
