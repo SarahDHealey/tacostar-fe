@@ -3,14 +3,16 @@ import Map from './Map';
 import * as config from '../../config'
 import GoogleApiComponent from './GoogleApiComponent'
 import MapSidebarContainer from './MapSidebarContainer'
-import {PlaceMarker} from './PlaceMarker'
 import {InfoWindow} from 'react-google-maps'
+import { PlaceMarker } from './PlaceMarker';
+
+
 
 export class MapContainer extends React.Component {
   constructor(props) {	
     super(props)	
      this.state = {	
-      isOpen: false,	
+      isOpen: false,
       markers: [{	
         id: 'Longmont',	
         area: 'Denver',	
@@ -84,6 +86,18 @@ export class MapContainer extends React.Component {
       }]	
     }	
   }
+  handleInfoWindowClose() {
+    this.setState({ activeMarker: null })
+    return
+}
+
+  handleMarkerClick = (marker) => {
+    console.log('markerClicked:',marker)
+    return this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
+
   render() {
     const markers = this.state.markers;
     if (!this.props.loaded) {
@@ -96,6 +110,7 @@ export class MapContainer extends React.Component {
     }
     /*Marker components 
     are children of the Map component*/
+    const pos = {lat: 38.838526, lng: -104.818083}
     return (
       <div>
         <div className="row notificationBar primary-alert"></div>
@@ -104,8 +119,15 @@ export class MapContainer extends React.Component {
               <MapSidebarContainer/>	
           </div>
           <div className="col-sm-9 main-map-right" align="left">
-            <Map google={this.props.google}>
-              <PlaceMarker/>
+            <Map google={this.props.google}
+            >
+            {markers.map(marker => (
+              <PlaceMarker
+              key={marker.id}
+              position={{ lat: marker.latitude, lng: marker.longitude }}
+              onClick={this.handleMarkerClick.bind(this)}
+              />
+            ))}
             </Map>
           </div>
         </div>
@@ -118,13 +140,3 @@ let key = config.getGoogleKey()
 export default GoogleApiComponent({
   apiKey: key
 })(MapContainer)
-
-
-
-// <InfoWindow {...this.props}
-// marker={this.props.activeMarker}
-// visible={this.props.showingInfoWindow}>
-//   <div>
-//     <h4>{this.props.selectedTitle}</h4>
-//   </div>
-// </InfoWindow>

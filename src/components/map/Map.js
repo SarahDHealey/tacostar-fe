@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import {camelize} from '../../lib/String';
+import PropTypes from 'prop-types'
+import { camelize } from '../../lib/String'
 
 const evtNames = ['ready', 'click', 'dragend'];
 
@@ -22,6 +22,7 @@ class Map extends React.Component {
 
     const {lat, lng} = this.props.initialCenter;
     this.state = {
+      isOpen: false,
       currentLocation: {
         lat: lat, 
         lng: lng
@@ -66,6 +67,7 @@ class Map extends React.Component {
         map.panTo(center)
     }
   }
+
 //renderChildren fn
   renderChildren() {
     const {children} = this.props;
@@ -161,10 +163,10 @@ Map.propTypes = {
 evtNames.forEach(e => (Map.propTypes[camelize(e)] = PropTypes.func));
 
 Map.defaultProps = {
-  zoom: 7,
+  zoom: 8.5,
   initialCenter: {
-    lat: 39.265943,
-    lng: -104.931300
+    lat: 39.49,
+    lng: -103.931300
   },
   centerAroundCurrentLocation: false,
   onMove: function() {}

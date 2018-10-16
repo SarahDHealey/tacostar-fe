@@ -1,73 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types';
-
+import React from 'react';
+import PropTypes from 'prop-types'
 import { camelize } from '../../lib/String'
-const evtNames = ['click', 'mouseover', 'recenter'];
 
-const wrappedPromise = function() {
-    var wrappedPromise = {},
-        promise = new Promise(function (resolve, reject) {
-            wrappedPromise.resolve = resolve;
-            wrappedPromise.reject = reject;
-        });
-    wrappedPromise.then = promise.then.bind(promise);
-    wrappedPromise.catch = promise.catch.bind(promise);
-    wrappedPromise.promise = promise;
+const evtNames = ['click', 'mouseover'];
 
-    return wrappedPromise;
-}
 
 export class PlaceMarker extends React.Component {
 
-  componentDidMount() {
-    this.markerPromise = wrappedPromise();
-    this.renderMarker();
-  }
-
   componentDidUpdate(prevProps) {
     if ((this.props.map !== prevProps.map) ||
-        (this.props.position !== prevProps.position)) {
+      (this.props.position !== prevProps.position)) {
         this.renderMarker();
     }
-  }
-
-  componentWillUnmount() {
-    if (this.marker) {
-      this.marker.setMap(null);
-    }
-  }
-
-  renderMarker() {
-    if (this.marker) {
-      this.marker.setMap(null);
-    }
-    let {
-      map, google, position, mapCenter
-    } = this.props;
-    if (!google) {
-      return null
-    }
-
-    let pos = position || mapCenter;
-    if (!(pos instanceof google.maps.LatLng)) {
-      position = new google.maps.LatLng(pos.lat, pos.lng);
-    }
-
-    const pref = {
-      map: map,
-      position: position
-    };
-    this.marker = new google.maps.Marker(pref);
-
-    evtNames.forEach(e => {
-      this.marker.addListener(e, this.handleEvent(e));
-    });
-
-    this.markerPromise.resolve(this.marker);
-  }
-
-  getMarker() {
-    return this.markerPromise;
   }
 
   handleEvent(evt) {
@@ -79,6 +23,25 @@ export class PlaceMarker extends React.Component {
     }
   }
 
+  renderMarker() {
+    let {
+      map, google, position, mapCenter
+    } = this.props;
+
+    let pos = position || mapCenter;
+    position = new google.maps.LatLng(pos.lat, pos.lng);
+
+    const pref = {
+      map:map,
+      position:position
+    }
+    this.marker = new google.maps.Marker(pref)
+
+    evtNames.forEach(e => {
+      this.marker.addListener(e, this.handleEvent(e));
+    })
+  }
+
   render() {
     return null;
   }
@@ -87,12 +50,6 @@ export class PlaceMarker extends React.Component {
 PlaceMarker.propTypes = {
   position: PropTypes.object,
   map: PropTypes.object
-}
-
-evtNames.forEach(e => PlaceMarker.propTypes[e] = PropTypes.func)
-
-PlaceMarker.defaultProps = {
-  name: 'PlaceMarker'
 }
 
 export default PlaceMarker
