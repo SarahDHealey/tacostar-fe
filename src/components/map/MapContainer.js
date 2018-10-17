@@ -11,23 +11,31 @@ import { PlaceMarker } from './PlaceMarker';
 export class MapContainer extends React.Component {
   constructor(props) {	
     super(props)	
-     this.state = {	
+     this.state = {
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},	
       isOpen: false,
       markers: [{	
         id: 'Longmont',	
         area: 'Denver',	
         longitude: -105.101842,	
         latitude: 40.194512,	
-        address: '2020 Main St, Longmont, CO 80501',	
+        address: '2020 Main St',
+        city: 'Longmont',
+        state: 'CO',
         zipcode: 80501,	
-        content: '2020 Main St, Longmont, CO 80501'	
+        content: 'hi'	
       },	
       {	
         id: 'Northglenn',	
         area: 'Denver',	
         longitude: -104.999447,	
         latitude: 39.884618,	
-        address: '1050 W 104th Ave #8, Northglenn, CO 80234',	
+        address: '1050 W 104th Ave #8',
+        city: 'Northglenn',
+        state: 'CO',
+        zipcode: 80234,
         content: '1050 W 104th Ave #8, Northglenn, CO 80234'	
       },	
       {	
@@ -35,7 +43,10 @@ export class MapContainer extends React.Component {
         area: 'Denver',	
         longitude: -104.980506,	
         latitude: 39.849385,	
-        address: '503 E 84th Ave, Thornton, CO 80229',	
+        address: '503 E 84th Ave',
+        city: 'Thornton',
+        state: 'CO',
+        zipcode: 80229,
         content: '503 E 84th Ave, Thornton, CO 80229'	
       },	
       {	
@@ -43,8 +54,10 @@ export class MapContainer extends React.Component {
         area: 'Denver',	
         longitude: -104.865299,	
         latitude: 39.684654,	
-        address: '1760 S. Havana St. Aurora, Colorado 80014',	
-        zipcode: 80022,	
+        address: '1760 S. Havana St',
+        city: 'Aurora',
+        state: 'CO',	
+        zipcode: 80014,	
         content: '1760 S. Havana St. Aurora, Colorado 80014'	
       },	
       {	
@@ -52,7 +65,9 @@ export class MapContainer extends React.Component {
         area: 'Colorado Springs',	
         longitude: -104.757153,	
         latitude: 38.939096,	
-        address: '7434 Rangewood Dr, Colorado Springs, CO 80920',	
+        address: '7434 Rangewood Dr',
+        city: 'Colorado Springs',
+        state: 'CO',	
         zipcode: 80920,	
         content: '7434 Rangewood Dr, Colorado Springs, CO 80920'	
       },	
@@ -61,7 +76,9 @@ export class MapContainer extends React.Component {
         area: 'Colorado Springs',	
         longitude: -104.805729,	
         latitude: 38.874259,	
-        address: '1190 E Fillmore St, Colorado Springs, CO 80907',	
+        address: '1190 E Fillmore St',
+        city: 'Colorado Springs',
+        state: 'CO',	
         zipcode: 80907,	
         content: '1190 E Fillmore St, Colorado Springs, CO 80907'	
       },	
@@ -70,7 +87,9 @@ export class MapContainer extends React.Component {
         area: 'Colorado Springs',	
         longitude: -104.775584,	
         latitude: 38.841359,	
-        address: '605 N Circle Dr, Colorado Springs, CO 80909',	
+        address: '605 N Circle Dr',
+        city: 'Colorado Springs',
+        state: 'CO',	
         zipcode: 80909,	
         content: '605 N Circle Dr, Colorado Springs, CO 80909'	
       },	
@@ -79,7 +98,9 @@ export class MapContainer extends React.Component {
         area: 'Colorado Springs',	
         longitude: -104.818083,	
         latitude: 38.838526,	
-        address: '318 Wahsatch Avenue, Colorado Springs, CO 80903',	
+        address: '318 Wahsatch Avenue',
+        city: 'Colorado Springs',
+        state: 'CO',
         zipcode: 80903,	
         content: '318 Wahsatch Avenue, Colorado Springs, CO 80903',	
         moreinfo: 'link here?'	
@@ -101,7 +122,8 @@ export class MapContainer extends React.Component {
 
   handleMarkerClick = ((props,marker,e) => {
     console.log('marker', marker)
-    console.log(props)
+    console.log('props',props)
+    console.log("state active marker",this.state.activeMarker)
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -134,17 +156,30 @@ export class MapContainer extends React.Component {
             {markers.map(marker => (
               <PlaceMarker
               key={marker.id}
+              name={marker.id}
+              address={marker.address}
+              city={marker.city}
               position={{ lat: marker.latitude, lng: marker.longitude }}
-              onClick={this.handleMarkerClick.bind(this)}
+              onClick={this.handleMarkerClick}
               />
             ))}
-            <InfoWindow
-              marker={this.state.activeMarker}
-              visible={this.state.showingInfoWindow}>
-              <div>
-                <h1>hi</h1>
-              </div>
-            </InfoWindow>
+              <InfoWindow
+                marker={this.state.activeMarker}
+                visible={this.state.showingInfoWindow}>
+                  <div>
+                    <div className="container">
+                      <h4 className="iw-title">
+                        {this.state.selectedPlace.name}
+                      </h4>
+                      <div className="iw-container">
+                      <p>
+                        {this.state.selectedPlace.address} <br />
+                        {this.state.selectedPlace.city}
+                      </p>
+                      </div>
+                    </div>
+                </div>
+              </InfoWindow>
             </Map>
           </div>
         </div>
@@ -157,3 +192,4 @@ let key = config.getGoogleKey()
 export default GoogleApiComponent({
   apiKey: key
 })(MapContainer)
+
