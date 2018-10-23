@@ -124,6 +124,8 @@ export class MapContainer extends React.Component {
     console.log('marker', marker)
     console.log('props',props)
     console.log("state active marker",this.state.activeMarker)
+    console.log('infowindow raw? ',InfoWindow);
+    
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -166,18 +168,15 @@ export class MapContainer extends React.Component {
               <InfoWindow
                 marker={this.state.activeMarker}
                 visible={this.state.showingInfoWindow}>
+                <div className="height-container">
+                  <div className="left-box">
+                  test
+                  </div>
                   <div>
-                    <div className="container">
-                      <h4 className="iw-title">
-                        {this.state.selectedPlace.name}
-                      </h4>
-                      <div className="iw-container">
-                      <p>
-                        {this.state.selectedPlace.address} <br />
-                        {this.state.selectedPlace.city}
-                      </p>
-                      </div>
-                    </div>
+                    <p className="right-box">
+                    test
+                    </p>
+                  </div>
                 </div>
               </InfoWindow>
             </Map>

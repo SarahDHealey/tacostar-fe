@@ -143,7 +143,7 @@ export const wrapper = (options) => (WrappedComponent) => {
 				markers: this.state.markers
       })
       return (
-        <div>
+        <div className="refMap">
           <WrappedComponent {...props} />
           <div ref='map' />
         </div>

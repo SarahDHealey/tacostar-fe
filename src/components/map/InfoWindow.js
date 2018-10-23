@@ -42,6 +42,7 @@ export class InfoWindow extends React.Component {
     let {map, google, mapCenter} = this.props;
 
     const iw = this.infowindow = new google.maps.InfoWindow({
+      content: "<div className='iw-cntrl'></div>"
     });
   }
   render() {
