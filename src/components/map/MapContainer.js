@@ -15,7 +15,6 @@ export class MapContainer extends React.Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},	
-      isOpen: false,
       markers: [{	
         id: 'Longmont',	
         area: 'Denver',	
@@ -107,6 +106,14 @@ export class MapContainer extends React.Component {
       }]	
     }	
   }
+  onMapClick() {
+      console.log('onMapClickHappened!!!******')
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
+      return
+  }
   getInitialState() {
     return {
       showingInfoWindow: false,
@@ -154,6 +161,7 @@ export class MapContainer extends React.Component {
           </div>
           <div className="col-sm-9 main-map-right" align="left">
             <Map google={this.props.google}
+                 onClick={this.onMapClick.bind(this)}
             >
             {markers.map(marker => (
               <PlaceMarker

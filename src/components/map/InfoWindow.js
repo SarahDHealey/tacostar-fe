@@ -18,15 +18,15 @@ export class InfoWindow extends React.Component {
         this.openWindow() :
         this.closeWindow();
     }
-    if (this.props.children !== prevProps.children) {
-      this.updateContent();
-    }
+    // if (this.props.children !== prevProps.children) {
+    //   this.updateContent();
+    // }
   }
-  updateContent() {
-    const content = this.renderChildren();
-    this.infowindow
-      .setContent(content);
-  }
+  // updateContent() {
+  //   const content = this.renderChildren();
+  //   this.infowindow
+  //     .setContent(content);
+  // }
   openWindow() {
     this.infowindow
       .open(this.props.map, this.props.marker);
@@ -42,7 +42,7 @@ export class InfoWindow extends React.Component {
     let {map, google, mapCenter} = this.props;
 
     const iw = this.infowindow = new google.maps.InfoWindow({
-      content: "<div className='iw-cntrl'></div>"
+      // content: "<section className='iw-cntrl'></section>"
     });
   }
   render() {
