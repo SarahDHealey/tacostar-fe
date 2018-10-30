@@ -114,6 +114,14 @@ export class MapContainer extends React.Component {
       });
       return
   }
+  onDragend() {
+    console.log('onMapDragHappened!!!******')
+    this.setState({
+      showingInfoWindow: false,
+      activeMarker: null
+    });
+    return
+}
   getInitialState() {
     return {
       showingInfoWindow: false,
@@ -162,6 +170,7 @@ export class MapContainer extends React.Component {
           <div className="col-sm-9 main-map-right" align="left">
             <Map google={this.props.google}
                  onClick={this.onMapClick.bind(this)}
+                 onDragend={this.onDragend.bind(this)}
             >
             {markers.map(marker => (
               <PlaceMarker
@@ -175,7 +184,8 @@ export class MapContainer extends React.Component {
             ))}
               <InfoWindow
                 marker={this.state.activeMarker}
-                visible={this.state.showingInfoWindow}>
+                visible={this.state.showingInfoWindow}
+                onClose={this.onInfoWindowClose}>
                 <div className="height-container">
                   <div className="left-box">
                   test

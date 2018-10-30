@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import { camelize } from '../../lib/String'
 
-const evtNames = ['click', 'mouseover'];
+const evtNames = ['click', 'mouseover', 'dragend'];
 
 
 export class PlaceMarker extends React.Component {
